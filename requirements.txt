@@ -1,0 +1,4 @@
+PyQt5>=5.15.10
+xhtml2pdf>=0.2.16
+sympy>=1.12
+configparser>=7.1.0
