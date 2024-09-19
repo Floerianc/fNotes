@@ -49,7 +49,7 @@ class Application(Ui_MainWindow):
         '''
         self.listWidget.clicked.connect(lambda: self.openNoteFromListWidget(self.listWidget))
         self.tmpListWidget.clicked.connect(lambda: self.openNoteFromListWidget(self.tmpListWidget))
-        self.deleteCurrentNote.clicked.connect(self.setHyperLink)
+        self.deleteCurrentNote.clicked.connect(self.deleteNote)
         self.colorPickerButton.clicked.connect(self.setColor)
         self.markerPickerButton.clicked.connect(self.setMarker)
         self.math.clicked.connect(self.calc)
@@ -488,12 +488,6 @@ class Application(Ui_MainWindow):
         self.editor.setFontWeight(self.fontWeightSpin.value())
         print(self.fontWeightSpin.value())
     
-    def setHyperLink(self):
-        cursor = self.editor.textCursor()
-        selectedText = cursor.selectedText()
-        
-        hyperlink = f'<a href="{selectedText}">HyperLink</a>'
-        self.editor.insertHtml(hyperlink)
 
 
 if __name__ == "__main__":
