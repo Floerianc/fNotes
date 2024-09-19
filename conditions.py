@@ -39,8 +39,6 @@ def getLanguage(index):
         content = doc.read()
         return content
 
-getLanguage(0)
-
 def autoSaveTime(time):
     if time == 0:
         time = 9509509
@@ -50,6 +48,6 @@ def getwordWrapStatus(status):
     
     wraps = {
         '0': QTextOption.WrapMode.NoWrap,
-        '2': QTextOption.WrapMode.WrapAnywhere
+        '2': QTextOption.WrapMode.WordWrap
     }
     return wraps[str(status)]

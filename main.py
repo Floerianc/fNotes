@@ -13,6 +13,7 @@ from xhtml2pdf import pisa
 from asset.ui.py.ui import *
 from asset.ui.py.about import *
 from asset.ui.py.settingsUI import *
+from asset.ui.py.table import *
 from worker import *
 from calc import calculate
 import conditions as c
@@ -29,6 +30,7 @@ class Application(Ui_MainWindow):
         super().__init__()
         
         self.language = 0
+        self.lang = dict
         self.dec = 9
         self.autoSave = 5
         self.wrap = QtWidgets.QTextEdit.LineWrapMode.WidgetWidth
@@ -47,11 +49,11 @@ class Application(Ui_MainWindow):
         '''
         self.listWidget.clicked.connect(lambda: self.openNoteFromListWidget(self.listWidget))
         self.tmpListWidget.clicked.connect(lambda: self.openNoteFromListWidget(self.tmpListWidget))
-        self.deleteCurrentNote.clicked.connect(self.deleteNote)
+        self.deleteCurrentNote.clicked.connect(self.setHyperLink)
         self.colorPickerButton.clicked.connect(self.setColor)
         self.markerPickerButton.clicked.connect(self.setMarker)
         self.math.clicked.connect(self.calc)
-        self.pushButton_4.clicked.connect(self.saveAsPDF)
+        self.pdfButton.clicked.connect(self.saveAsPDF)
         self.fontButton.clicked.connect(self.changeFont)
         self.fontWeightSpin.valueChanged.connect(self.setFontWeight)
         
@@ -67,10 +69,10 @@ class Application(Ui_MainWindow):
         self.createListGreek.clicked.connect(lambda: self.createList('LUA'))
         self.createListRoman.clicked.connect(lambda: self.createList('LUR'))
         
-        self.pushButton.clicked.connect(self.setBold)
-        self.pushButton_2.clicked.connect(self.setItalic)
-        self.pushButton_3.clicked.connect(self.setUnderlined)
-        self.spinBox.valueChanged.connect(self.setFontSizeSpin)
+        self.boldButton.clicked.connect(self.setBold)
+        self.italicButton.clicked.connect(self.setItalic)
+        self.underlineButton.clicked.connect(self.setUnderlined)
+        self.fontSizeSpin.valueChanged.connect(self.setFontSizeSpin)
         self.imageButton.clicked.connect(self.insertPicture)
         self.tableButton.clicked.connect(self.table)
         
@@ -105,8 +107,10 @@ class Application(Ui_MainWindow):
         
         self.editor.setWordWrapMode(self.wrap)
         self.editor.setFontPointSize(self.fontsize)
-        self.spinBox.setValue(int(self.fontsize)) # WHY DOES IT FORCE ME TO USE INT
-        translation.translate(self)
+        self.fontSizeSpin.setValue(int(self.fontsize)) # WHY DOES IT FORCE ME TO USE INT
+        
+        self.lang = translation.getCurrentLanguage(self.language)
+        translation.translateMainUi(self, self.lang)
     
     def getNotes(self):
         '''Returns a list of each note and its relative path
@@ -272,7 +276,7 @@ class Application(Ui_MainWindow):
     
     def setFontSizeSpin(self):
         '''Sets the Font point size to the value in the spinBox'''
-        self.editor.setFontPointSize(self.spinBox.value())
+        self.editor.setFontPointSize(self.fontSizeSpin.value())
     
     def setAlignment(self, direction):
         '''Sets Alignment of the text
@@ -412,6 +416,8 @@ class Application(Ui_MainWindow):
         self.settingsUI.buttonBox.accepted.connect(self.updateSettings)
         self.settingsUI.buttonBox.rejected.connect(lambda: self.closeWindow(self.settingsWindow))
         
+        translation.translateSettings(self.settingsUI, self.lang)
+        
         self.settingsWindow.show()
     
     def closeWindow(self, window):
@@ -432,9 +438,9 @@ class Application(Ui_MainWindow):
         and applied the config, we close the window
         '''
         appliedSettings = {
-            'lang': self.settingsUI.comboBox.currentIndex(),
-            'dec': self.settingsUI.spinBox.value(),
-            'auto': self.settingsUI.spinBox_2.value(),
+            'lang': self.settingsUI.langComboBox.currentIndex(),
+            'dec': self.settingsUI.decSpinBox.value(),
+            'auto': self.settingsUI.intervalSpinBox.value(),
             'wrap': self.settingsUI.wordWrap.checkState(),
             'fontsize': self.settingsUI.doubleSpinBox.value()
         }
@@ -459,7 +465,18 @@ class Application(Ui_MainWindow):
     
     def table(self):
         '''Generates and inserts a Table'''
-        table.tableWindow(self)
+        
+        self.windowTable = QtWidgets.QDialog()
+        
+        self.TableUI = UI_Dialog_Table()
+        self.TableUI.setupUi(self.windowTable)
+        
+        self.TableUI.buttonBox.accepted.connect(lambda: table.insertTable(self))
+        self.TableUI.buttonBox.rejected.connect(lambda: self.closeWindow(self.windowTable))
+        
+        translation.translateTable(self.TableUI, self.lang)
+        
+        self.windowTable.show()
     
     def changeFont(self):
         '''Opens QFontDialog and applies the 
@@ -470,10 +487,16 @@ class Application(Ui_MainWindow):
     def setFontWeight(self):
         self.editor.setFontWeight(self.fontWeightSpin.value())
         print(self.fontWeightSpin.value())
+    
+    def setHyperLink(self):
+        cursor = self.editor.textCursor()
+        selectedText = cursor.selectedText()
+        
+        hyperlink = f'<a href="{selectedText}">HyperLink</a>'
+        self.editor.insertHtml(hyperlink)
 
 
 if __name__ == "__main__":
-    
     app = QtWidgets.QApplication(argv)
     Form = QtWidgets.QMainWindow()
     

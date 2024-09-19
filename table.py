@@ -16,17 +16,6 @@ def getBorderStyle(tableStyle, key):
     }
     return styles[key]
 
-def tableWindow(self):
-    self.windowTable = QtWidgets.QDialog()
-    
-    self.TableUI = UI_Dialog_Table()
-    self.TableUI.setupUi(self.windowTable)
-    
-    self.TableUI.buttonBox.accepted.connect(lambda: insertTable(self))
-    self.TableUI.buttonBox.rejected.connect(lambda: self.closeWindow(self.windowTable))
-    
-    self.windowTable.show()
-
 def insertTable(self):
     rows = self.TableUI.Rows.value()
     columns = self.TableUI.Columns.value()
