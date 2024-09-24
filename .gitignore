@@ -1,0 +1,4 @@
+crypto.py
+debug/convertToEncryptedNote.py
+user_content/note/*
+user_content/tmp/*

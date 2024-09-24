@@ -15,7 +15,7 @@ def returnPathIfNoteExists(notes, noteName):
     for note in notes:
         if noteName == note[1]:
             path = f"{note[0]}/{note[1]}"
-    return path
+            return path
 
 def IndexOfNoteInList(listWidgets, note):
     for listWidget in listWidgets:
@@ -25,10 +25,12 @@ def IndexOfNoteInList(listWidgets, note):
                 return listWidget, i
     return None, None
 
-def PDFNameCondition(name, content):
-    if str(name) == "" or str(content) == "":
+def PDFNameCondition(name: str, content: str):
+    if name == "" or content == "":
         return False
     else:
+        if ".pdf" in name:
+            name.replace(".pdf", "")
         return True
 
 def getLanguage(index):
@@ -51,3 +53,10 @@ def getwordWrapStatus(status):
         '2': QTextOption.WrapMode.WordWrap
     }
     return wraps[str(status)]
+
+def getStatusOfSupOrSubText(text):
+    tag = text[0:5]
+    if tag == "<sub>" or tag == "<sup>":
+        return tag
+    else:
+        return True

@@ -1,3 +1,12 @@
+from PyQt5.QtWidgets import(
+    QPushButton,
+    QLabel,
+    QMenu,
+    QAction,
+    QComboBox,
+    QSpinBox
+)
+
 language = {
     # i want to die
     'english': {
@@ -6,24 +15,32 @@ language = {
             'createListGreek': 'δ',
             'createListRoman': 'IV.',
             'math': 'Σ',
-            'pushButton': 'F',
+            'boldButton': 'F',
             'Left': 'L',
             'Middle': 'M',
             'Right': 'R',
-            'pushButton_2': 'K',
+            'italicButton': 'K',
             'createListDec': '1.',
-            'pushButton_3': 'U',
-            'spinBox': 'px',
+            'underlineButton': 'U',
+            'fontSizeSpin': 'px',
             'createListDot': '•',
             'imageButton': 'Image',
             'tableButton': 'Table',
-            'tabWidget1': 'Basic',
-            'tabWidget2': 'Advanced',
             'fontButton': 'Font',
-            'label': 'Font weight',
+            'fontWeightLabel': 'Font weight',
+            'supButton': 'Sup',
+            'subButton': 'Sub',
+            'removeSupSub': 'Remove Sup/Sub',
+            'searchBarRegular': 'Search...',
+            'searchBarTmp': 'Search...',
             'menuFile': 'Note',
             'menuHelp': 'Help',
             'menuOther': 'Other',
+            'menuExport': 'Export',
+            'menuTools': 'Tools',
+            'menuText_Formatting': 'Text Formatting...',
+            'menuLists': 'Lists',
+            'menuColors': 'Colors',
             'actionNew': 'new',
             'actionOpen': 'Open',
             'actionSave': 'Save',
@@ -32,33 +49,45 @@ language = {
             'actionExit_2': 'Exit',
             'actionAbout': 'About',
             'actionSettings': 'Settings',
+            'actionBold': 'Bold',
+            'actionUnderline': 'Underline',
+            'actionItalic': 'Italic',
+            'actionLeft': 'Left',
+            'actionCenter': 'Center',
+            'actionRight': 'Right',
+            'actionBulletpoint': 'Bulletpoint',
+            'actionDecimal': 'Decimal',
+            'actionAlphabet': 'Alphabet',
+            'actionRoman_Numbers': 'Roman Numbers',
+            'actionMath_2': 'Math',
+            'actionText_Color': 'Text Color',
+            'actionText_Background_Color': 'Text-Background Color',
+            'actionSup': 'Sup',
+            'actionSub': 'Sub',
+            'actionRemove_Sup_Sub': 'Remove Sup/Sub',
+            'actionChange_Font': 'Change Font',
+            'actionCheck_Grammar_EXPERIMENTIAL': 'Check Grammar (EXPERIMENTIAL)',
+            'actionExport_as_HTML': 'Export as HTML',
+            'actionExport_as_PDF': 'Export as PDF',
         },
         'table': {
             'headerLabelTable': 'Table Designer',
             'rowsLabel': 'Rows',
             'columnsLabel': 'Columns',
-            'borderStyle_0': 'Solid',
-            'borderStyle_1': 'Dashed',
-            'borderStyle_2': 'DotDash',
-            'borderStyle_3': 'DotDotDash',
-            'borderStyle_4': 'Dotted',
-            'borderStyle_5': 'Double',
-            'borderStyle_6': 'Groove',
-            'borderStyle_7': 'Inset',
-            'borderStyle_8': 'None',
-            'borderStyle_9': 'Outset',
-            'borderStyle_10': 'Ridge',
             'borderStyleLabel': 'Border Style',
         },
         'settings': {
             'intervalLabel': 'Interval for auto-save feature (In seconds) (Leave at 0 to disable)',
             'decLabel': 'Decimal-points when using the basic calculator',
-            'langComboBox_0': 'English',
-            'langComboBox_1': 'Deutsch',
             'langLabel': 'Set Language of the Help-Section (Help >> About)',
             'wrapLabel': 'Enable Word-wrap in Editor',
-            'doubleSpinBox': 'px',
+            'spinBox': 'px',
             'settingFontSizeLabel': 'Standard Font size'
+        },
+        'script': {
+            'runButtonScript': 'Run',
+            'clearButtonScript': 'Clear',
+            'scriptHandlerUnder': 'This might be slightly unstable ^^',
         }
     },
     
@@ -68,127 +97,82 @@ language = {
             'createListGreek': 'δ',
             'createListRoman': 'IV.',
             'math': 'Σ',
-            'pushButton': 'F',
+            'boldButton': 'F',
             'Left': 'L',
             'Middle': 'M',
             'Right': 'R',
-            'pushButton_2': 'K',
+            'italicButton': 'K',
             'createListDec': '1.',
-            'pushButton_3': 'U',
-            'spinBox': 'px',
+            'underlineButton': 'U',
+            'fontSizeSpin': 'px',
             'createListDot': '•',
             'imageButton': 'Bild',
             'tableButton': 'Tabelle',
-            'tabWidget1': 'Einfach',
-            'tabWidget2': 'Erweitert',
             'fontButton': 'Schrift',
-            'label': 'Gewicht der Schrift',
+            'fontWeightLabel': 'Schriftgewicht',
+            'supButton': 'Sup',
+            'subButton': 'Sub',
+            'removeSupSub': 'Sup/Sub entfernen',
+            'searchBarRegular': 'Suchen...',
+            'searchBarTmp': 'Suchen...',
             'menuFile': 'Notiz',
             'menuHelp': 'Hilfe',
-            'menuOther': 'Weitere',
+            'menuOther': 'Weiteres',
+            'menuExport': 'Exportieren',
+            'menuTools': 'Werkzeuge',
+            'menuText_Formatting': 'Text Formattierung...',
+            'menuLists': 'Listen',
+            'menuColors': 'Farben',
             'actionNew': 'Neu',
             'actionOpen': 'Öffnen',
             'actionSave': 'Speichern',
-            'actionSave_as': 'Speichern als...',
+            'actionSave_as': 'Speichern as...',
             'actionExit': 'Löschen',
             'actionExit_2': 'Verlassen',
             'actionAbout': 'Über',
-            'actionSettings': 'Einstellungen'
+            'actionSettings': 'Einstellungen',
+            'actionBold': 'Fett',
+            'actionUnderline': 'Unterstrichen',
+            'actionItalic': 'Kursiv',
+            'actionLeft': 'Links',
+            'actionCenter': 'Mitte',
+            'actionRight': 'Rechts',
+            'actionBulletpoint': 'Stichpunkt',
+            'actionDecimal': 'Dezimal',
+            'actionAlphabet': 'Alphabet',
+            'actionRoman_Numbers': 'Römische Zahlen',
+            'actionMath_2': 'Mathematik',
+            'actionText_Color': 'Text Farbe',
+            'actionText_Background_Color': 'Hintergrundfarbe vom Text',
+            'actionSup': 'Sup',
+            'actionSub': 'Sub',
+            'actionRemove_Sup_Sub': 'Sup/Sub entfernen',
+            'actionChange_Font': 'Schriftart ändern',
+            'actionCheck_Grammar_EXPERIMENTIAL': 'Grammatik überprüfen (EXPERIMENTIELL)',
+            'actionExport_as_HTML': 'Als HTML exportieren',
+            'actionExport_as_PDF': 'Als PDF exportieren',
         },
         'table': {
             'headerLabelTable': 'Tabellen Entwickler',
             'rowsLabel': 'Reihen',
             'columnsLabel': 'Zellen',
-            'borderStyle_0': 'Solid',
-            'borderStyle_1': 'Dashed',
-            'borderStyle_2': 'DotDash',
-            'borderStyle_3': 'DotDotDash',
-            'borderStyle_4': 'Dotted',
-            'borderStyle_5': 'Double',
-            'borderStyle_6': 'Groove',
-            'borderStyle_7': 'Inset',
-            'borderStyle_8': 'None',
-            'borderStyle_9': 'Outset',
-            'borderStyle_10': 'Ridge',
             'borderStyleLabel': 'Umrandung',
         },
         'settings': {
             'intervalLabel': 'Interval für das automatische Speichern (in Sekunden) (Belasse es bei 0, um die Funktion auszuschalten)',
             'decLabel': 'Nachkommastellen, wenn man den Rechner benutzt',
-            'langComboBox_0': 'English',
-            'langComboBox_1': 'Deutsch',
             'langLabel': 'Sprache in der "Über" Sektion ändern',
             'wrapLabel': 'Automatischen Zeilenbruch',
-            'doubleSpinBox': 'px',
+            'spinBox': 'px',
             'settingFontSizeLabel': 'Standard Schriftgröße'
+        },
+        'script': {
+            'runButtonScript': 'Start',
+            'clearButtonScript': 'Löschen',
+            'scriptHandlerUnder': 'Das ist vielleicht instabil ^^',
         }
     }
 }
-
-def translateMainUi(ui, currentLanguage):
-    languageSection = currentLanguage['main']
-    
-    ui.deleteCurrentNote.setText(languageSection['deleteCurrentNote'])
-    ui.createListGreek.setText(languageSection['createListGreek'])
-    ui.createListRoman.setText(languageSection['createListRoman'])
-    ui.math.setText(languageSection['math'])
-    ui.boldButton.setText(languageSection['pushButton'])
-    ui.Left.setText(languageSection['Left'])
-    ui.Right.setText(languageSection['Right'])
-    ui.italicButton.setText(languageSection['pushButton_2'])
-    ui.Middle.setText(languageSection['Middle'])
-    ui.underlineButton.setText(languageSection['pushButton_3'])
-    ui.fontSizeSpin.setSuffix(languageSection['spinBox'])
-    ui.createListDec.setText(languageSection['createListDec'])
-    ui.createListDot.setText(languageSection['createListDot'])
-    ui.imageButton.setText(languageSection['imageButton'])
-    ui.tableButton.setText(languageSection['tableButton'])
-    ui.toolBox.setTabText(ui.toolBox.indexOf(ui.tab), languageSection['tabWidget1'])
-    ui.fontButton.setText(languageSection['fontButton'])
-    ui.fontWeightLabel.setText(languageSection['label'])
-    ui.toolBox.setTabText(ui.toolBox.indexOf(ui.tab_2), languageSection['tabWidget2'])
-    ui.menuFile.setTitle(languageSection['menuFile'])
-    ui.menuHelp.setTitle(languageSection['menuHelp'])
-    ui.menuOther.setTitle(languageSection['menuOther'])
-    ui.actionNew.setText(languageSection['actionNew'])
-    ui.actionOpen.setText(languageSection['actionOpen'])
-    ui.actionSave.setText(languageSection['actionSave'])
-    ui.actionSave_as.setText(languageSection['actionSave_as'])
-    ui.actionExit.setText(languageSection['actionExit'])
-    ui.actionAbout.setText(languageSection['actionAbout'])
-    ui.actionExit_2.setText(languageSection['actionExit_2'])
-    ui.actionSettings.setText(languageSection['actionSettings'])
-
-def translateTable(ui, currentLanguage):
-    languageSection = currentLanguage['table']
-    
-    ui.headerLabelTable.setText(languageSection['headerLabelTable'])
-    ui.rowsLabel.setText(languageSection['rowsLabel'])
-    ui.columnsLabel.setText(languageSection['columnsLabel'])
-    ui.borderStyle.setItemText(0, languageSection['borderStyle_0'])
-    ui.borderStyle.setItemText(1, languageSection['borderStyle_1'])
-    ui.borderStyle.setItemText(2, languageSection['borderStyle_2'])
-    ui.borderStyle.setItemText(3, languageSection['borderStyle_3'])
-    ui.borderStyle.setItemText(4, languageSection['borderStyle_4'])
-    ui.borderStyle.setItemText(5, languageSection['borderStyle_5'])
-    ui.borderStyle.setItemText(6, languageSection['borderStyle_6'])
-    ui.borderStyle.setItemText(7, languageSection['borderStyle_7'])
-    ui.borderStyle.setItemText(8, languageSection['borderStyle_8'])
-    ui.borderStyle.setItemText(9, languageSection['borderStyle_9'])
-    ui.borderStyle.setItemText(10, languageSection['borderStyle_10'])
-    ui.borderStyleLabel.setText(languageSection['borderStyleLabel'])
-
-def translateSettings(ui, currentLanguage):
-    languageSection = currentLanguage['settings']
-    
-    ui.intervalLabel.setText(languageSection['intervalLabel'])
-    ui.decLabel.setText(languageSection['decLabel'])
-    ui.langComboBox.setItemText(0, languageSection['langComboBox_0'])
-    ui.langComboBox.setItemText(1, languageSection['langComboBox_1'])
-    ui.langLabel.setText(languageSection['langLabel'])
-    ui.wrapLabel.setText(languageSection['wrapLabel'])
-    ui.doubleSpinBox.setSuffix(languageSection['doubleSpinBox'])
-    ui.settingFontSizeLabel.setText(languageSection['settingFontSizeLabel'])
 
 def getCurrentLanguage(languageIndex: int):
     languages = [
@@ -198,3 +182,27 @@ def getCurrentLanguage(languageIndex: int):
     
     currentLanguage = language[languages[languageIndex]]
     return currentLanguage
+
+def translateUI(ui, lang: dict, section: str):
+    
+    for widgetName, translation in lang[section].items():
+        widget = getattr(ui, widgetName, None)
+        
+        if widget:
+            if isinstance(widget, (QPushButton, QLabel, QAction)):
+                widget.setText(translation)
+            
+            elif isinstance(widget, (QMenu)):
+                widget.setTitle(translation)
+            
+            elif isinstance(widget, QComboBox):
+                for index, text in enumerate(translation):
+                    widget.setItemText(index, text)
+            
+            elif isinstance(widget, QSpinBox):
+                widget.setSuffix(translation)
+        
+
+def applyLanguage(ui, languageIndex: int, section: str):
+    lang = getCurrentLanguage(languageIndex)
+    translateUI(ui, lang, section)

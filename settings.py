@@ -5,11 +5,15 @@ def readConfig():
     
     config.read('user_content/config.ini')
     
-    language = int(config.get('Settings', 'language'))
-    decimalNumbers = int(config.get('Settings', 'dec'))
-    autoSave = int(config.get('Settings', 'autoSave'))
-    wrap = int(config.get('Settings', 'wrap'))
-    fontsize = float(config.get('Settings', 'fontsize'))
+    try:
+        language = int(config.get('Settings', 'language'))
+        decimalNumbers = int(config.get('Settings', 'dec'))
+        autoSave = int(config.get('Settings', 'autoSave'))
+        wrap = int(config.get('Settings', 'wrap'))
+        fontsize = int(config.get('Settings', 'fontsize'))
+    
+    except Exception as e:
+        raise ValueError(f"Couldn't read one or more values from config.\n{e}")
     
     finishedConfig = {
         'language': language,

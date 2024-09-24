@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>650</height>
+    <height>750</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
     <width>800</width>
-    <height>650</height>
+    <height>750</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -26,7 +26,7 @@
       <x>10</x>
       <y>10</y>
       <width>331</width>
-      <height>121</height>
+      <height>161</height>
      </rect>
     </property>
    </widget>
@@ -34,9 +34,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>250</y>
+      <y>330</y>
       <width>771</width>
-      <height>311</height>
+      <height>301</height>
      </rect>
     </property>
     <property name="font">
@@ -62,7 +62,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>220</y>
+      <y>300</y>
       <width>211</width>
       <height>21</height>
      </rect>
@@ -92,7 +92,7 @@
       <x>450</x>
       <y>10</y>
       <width>331</width>
-      <height>121</height>
+      <height>161</height>
      </rect>
     </property>
    </widget>
@@ -100,7 +100,7 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>570</y>
+      <y>670</y>
       <width>121</width>
       <height>31</height>
      </rect>
@@ -109,27 +109,11 @@
      <string>Delete current note</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pdfButton">
-    <property name="geometry">
-     <rect>
-      <x>140</x>
-      <y>570</y>
-      <width>53</width>
-      <height>30</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">background-image: url()</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QTabWidget" name="toolBox">
     <property name="geometry">
      <rect>
       <x>230</x>
-      <y>140</y>
+      <y>220</y>
       <width>550</width>
       <height>110</height>
      </rect>
@@ -144,15 +128,21 @@
      <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
+     <property name="maximumSize">
+      <size>
+       <width>544</width>
+       <height>84</height>
+      </size>
+     </property>
      <attribute name="title">
       <string>Basic</string>
      </attribute>
      <widget class="QWidget" name="gridLayoutWidget">
       <property name="geometry">
        <rect>
-        <x>0</x>
+        <x>10</x>
         <y>0</y>
-        <width>541</width>
+        <width>531</width>
         <height>81</height>
        </rect>
       </property>
@@ -485,21 +475,7 @@ border-width: 2px</string>
        </rect>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="1">
-        <widget class="QPushButton" name="fontButton">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Font</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="0">
+       <item row="1" column="0">
         <widget class="QFrame" name="frame">
          <property name="frameShape">
           <enum>QFrame::StyledPanel</enum>
@@ -510,7 +486,7 @@ border-width: 2px</string>
          <widget class="QSpinBox" name="fontWeightSpin">
           <property name="geometry">
            <rect>
-            <x>216</x>
+            <x>120</x>
             <y>0</y>
             <width>51</width>
             <height>25</height>
@@ -537,25 +513,157 @@ border-width: 2px</string>
          <widget class="QLabel" name="fontWeightLabel">
           <property name="geometry">
            <rect>
-            <x>120</x>
-            <y>0</y>
-            <width>91</width>
-            <height>21</height>
+            <x>0</x>
+            <y>-10</y>
+            <width>121</width>
+            <height>41</height>
            </rect>
           </property>
           <property name="font">
            <font>
-            <pointsize>12</pointsize>
+            <pointsize>10</pointsize>
            </font>
           </property>
           <property name="text">
            <string>Font weight</string>
           </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="textInteractionFlags">
+           <set>Qt::NoTextInteraction</set>
+          </property>
          </widget>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QPushButton" name="supButton">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Sup</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="subButton">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Sub</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="removeSupSub">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Remove Sup/Sub</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QPushButton" name="fontButton">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Font</string>
+         </property>
         </widget>
        </item>
       </layout>
      </widget>
+    </widget>
+   </widget>
+   <widget class="QTextEdit" name="searchBarRegular">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>180</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="placeholderText">
+     <string>Search...</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="searchBarTmp">
+    <property name="geometry">
+     <rect>
+      <x>450</x>
+      <y>180</y>
+      <width>331</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="placeholderText">
+     <string>Search...</string>
+    </property>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>630</y>
+      <width>771</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-style: solid;
+border-width: 1px;
+border-color black;</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="statsLabel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>771</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
     </widget>
    </widget>
   </widget>
@@ -572,9 +680,17 @@ border-width: 2px</string>
     <property name="title">
      <string>Note</string>
     </property>
+    <widget class="QMenu" name="menuExport">
+     <property name="title">
+      <string>Export</string>
+     </property>
+     <addaction name="actionExport_as_HTML"/>
+     <addaction name="actionExport_as_PDF"/>
+    </widget>
     <addaction name="actionNew"/>
     <addaction name="actionOpen"/>
     <addaction name="actionSave"/>
+    <addaction name="menuExport"/>
     <addaction name="separator"/>
     <addaction name="actionExit"/>
     <addaction name="separator"/>
@@ -592,7 +708,52 @@ border-width: 2px</string>
     </property>
     <addaction name="actionSettings"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <widget class="QMenu" name="menuText_Formatting">
+     <property name="title">
+      <string>Text Formatting...</string>
+     </property>
+     <addaction name="actionBold"/>
+     <addaction name="actionUnderline"/>
+     <addaction name="actionItalic"/>
+     <addaction name="separator"/>
+     <addaction name="actionLeft"/>
+     <addaction name="actionCenter"/>
+     <addaction name="actionRight"/>
+     <addaction name="separator"/>
+     <addaction name="actionSup"/>
+     <addaction name="actionSub"/>
+     <addaction name="actionRemove_Sup_Sub"/>
+    </widget>
+    <widget class="QMenu" name="menuLists">
+     <property name="title">
+      <string>Lists</string>
+     </property>
+     <addaction name="actionBulletpoint"/>
+     <addaction name="actionDecimal"/>
+     <addaction name="actionAlphabet"/>
+     <addaction name="actionRoman_Numbers"/>
+    </widget>
+    <widget class="QMenu" name="menuColors">
+     <property name="title">
+      <string>Colors</string>
+     </property>
+     <addaction name="actionText_Color"/>
+     <addaction name="actionText_Background_Color"/>
+    </widget>
+    <addaction name="menuText_Formatting"/>
+    <addaction name="menuLists"/>
+    <addaction name="menuColors"/>
+    <addaction name="actionMath_2"/>
+    <addaction name="actionChange_Font"/>
+    <addaction name="actionCheck_Grammar_EXPERIMENTIAL"/>
+    <addaction name="actionPython_Script"/>
+   </widget>
    <addaction name="menuFile"/>
+   <addaction name="menuTools"/>
    <addaction name="menuHelp"/>
    <addaction name="menuOther"/>
   </widget>
@@ -635,6 +796,111 @@ border-width: 2px</string>
   <action name="actionSettings">
    <property name="text">
     <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionBold">
+   <property name="text">
+    <string>Bold</string>
+   </property>
+  </action>
+  <action name="actionUnderline">
+   <property name="text">
+    <string>Underline</string>
+   </property>
+  </action>
+  <action name="actionItalic">
+   <property name="text">
+    <string>Italic</string>
+   </property>
+  </action>
+  <action name="actionLeft">
+   <property name="text">
+    <string>Left</string>
+   </property>
+  </action>
+  <action name="actionCenter">
+   <property name="text">
+    <string>Center</string>
+   </property>
+  </action>
+  <action name="actionRight">
+   <property name="text">
+    <string>Right</string>
+   </property>
+  </action>
+  <action name="actionBulletpoint">
+   <property name="text">
+    <string>Bulletpoint</string>
+   </property>
+  </action>
+  <action name="actionDecimal">
+   <property name="text">
+    <string>Decimal</string>
+   </property>
+  </action>
+  <action name="actionAlphabet">
+   <property name="text">
+    <string>Alphabet</string>
+   </property>
+  </action>
+  <action name="actionRoman_Numbers">
+   <property name="text">
+    <string>Roman Numbers</string>
+   </property>
+  </action>
+  <action name="actionMath_2">
+   <property name="text">
+    <string>Math</string>
+   </property>
+  </action>
+  <action name="actionText_Color">
+   <property name="text">
+    <string>Text Color</string>
+   </property>
+  </action>
+  <action name="actionText_Background_Color">
+   <property name="text">
+    <string>Text-Background Color</string>
+   </property>
+  </action>
+  <action name="actionSup">
+   <property name="text">
+    <string>Sup</string>
+   </property>
+  </action>
+  <action name="actionSub">
+   <property name="text">
+    <string>Sub</string>
+   </property>
+  </action>
+  <action name="actionRemove_Sup_Sub">
+   <property name="text">
+    <string>Remove Sup/Sub</string>
+   </property>
+  </action>
+  <action name="actionChange_Font">
+   <property name="text">
+    <string>Change Font</string>
+   </property>
+  </action>
+  <action name="actionCheck_Grammar_EXPERIMENTIAL">
+   <property name="text">
+    <string>Check Grammar (EXPERIMENTIAL)</string>
+   </property>
+  </action>
+  <action name="actionExport_as_HTML">
+   <property name="text">
+    <string>Export as HTML</string>
+   </property>
+  </action>
+  <action name="actionExport_as_PDF">
+   <property name="text">
+    <string>Export as PDF</string>
+   </property>
+  </action>
+  <action name="actionPython_Script">
+   <property name="text">
+    <string>Script Editor</string>
    </property>
   </action>
  </widget>

@@ -14,12 +14,14 @@
  -  **3.** Writing your note
  - **3.1** Basic
  - **3.2** Advanced
+ - **3.3** Pro / Experimential 
  - **4.** Save notes
  - **4.1** Autosaves (Tmp)
- - **5.** Delete note
- - **6.** Mathematics
- - **7.** About
- -  **8.** Settings
+ - **5.** Exporting Notes
+ - **6.** Delete notes
+ - **7.** Mathematics
+ -  **8.** About
+ - **9.** Settings
 
 ### 0. Creating new notes
 First, click on **Note** in the top-left corner of the window, then on **New** to create a completely new note. Remember that this does not save any changes made to the current note.
@@ -37,6 +39,7 @@ To change the name of the current note you have to change the text in the nameLa
 
 ### 3. Writing your note
 This version of fNotes features a few features to edit your note.
+fNotes automatically tracks the amount of characters, amount of characters excluding spaces, words and reading time when you write your notes. 
 All functions you could use:
 
 ### 3.1 Basic:
@@ -47,7 +50,7 @@ All functions you could use:
  - **M** >> Aligns the text with the center
  - **R** >> Aligns the text with the right side of the editor
  - *SpinBox* (?px) >> Changes the size of the selected text
- - **Σ** >> Solves a mathematical problem. More info on this in: 6.
+ - **Σ** >> Solves a mathematical problem. More info on this in: `7.`
  - *The (black) boxes* >> Changes either the foreground or background color of the selected text.
  - • >> Creates a bulletpoint list
  - **1.** >> Creates a list with decimal numbers
@@ -59,17 +62,29 @@ All functions you could use:
 ### 3.2 Advanced
 - **Font weight** >> Changes the weight of the font
 - **Font** >> Changes the font.
+ - **Sup** >> Turns the selected text into superscript
+ - **Sub** >> Turns the selected text into subscript
+ 
+### 3.3 Pro / Experimential
+- Check grammar (English and German) >> Checks the grammar in your selected language
+	- To use this, click on **Tools** and then on **Check Grammar**.
+- Script Editor >> Create Scripts in Python and run them
+	- **Tools** > **Script Editor**
 
 ### 4. Save Notes
 To save a note, press on **Note** in the top-left corner of the screen and then on **Save**. This automatically saves the note so it can be viewed next time you open the program.
 
 #### 4.1 Autosaves (Tmp)
-The program automatically saves any note you currently have open every five seconds. Those files can be viewed in the tmpListWidget (the list on the top-right). As you can maybe notice, the notes name always ends with "Tmp" so you know it's an automatic save. If you don't like being bombarded with Tmp-Notes, you can delete them. (see 5.)
+The program automatically saves any note you currently have open every five seconds. Those files can be viewed in the tmpListWidget (the list on the top-right). As you can maybe notice, the notes name always ends with "Tmp" so you know it's an automatic save. If you don't like being bombarded with Tmp-Notes, you can delete them. (see 6.)
 
-### 5. Delete notes
+### 5. Exporting Notes
+This program gives you the option to export your notes not just as the regular encrypted text file but also as either a HTML or PDF File.
+To do that, click on **Note**, **Export** and then either **Export as HTML** or **Export as PDF**.
+
+### 6. Delete notes
 To delete a note you first have to click on a note and then click on the "Delete current note"-button on the bottom-left. Alternatively you can delete your current note when clicking on **Note** and then on **Delete**
 
-### 6. Mathematics
+### 7. Mathematics
 The basic calculator ( **Σ** ) can solve basic mathematical problems.
 This includes:
 - Square roots (sqrt) | Usage: "sqrt(2)" -> 1.414...
@@ -81,13 +96,14 @@ This includes:
 	- Alternatively: 2 ^ 3 -> 8 **or** 2 ** 3 -> 8
 - pi | Usage "pi" -> 3.141...
 
-### 7. About
-To open the "About" window: **Help** >> **About**.
+### 8. About
+To open the "About" window: **Help** >> **About**
 
-### 8. Settings
+### 9. Settings
 In the **Settings** tab (**Other** >> **Settings**) you can change a few settings to match your preferences.
+
 Settings:
-- Set language of the **About** section (In v0.9 it also translates the Main Window)
+- Set language
 - Decimal points when using the calculator (1-9) (e.g. if you change it to **5** and you try **1 / 3** you'll get 0.33333).
 - Interval for Auto-Saves (something between 0 and 300 seconds. If you set it to 0 seconds the program will never automatically save. In the code it will just set the wait-time to 9,509,509 seconds lol)
 - The standard Font-Size (between 1px and 128px)
